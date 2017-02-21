@@ -10,7 +10,7 @@ Harjoitustyösuunnitelma versio 0.1
 	Ville Halminen
 	Oskari Laulainen
 	
-##Versiohallinta Githubissa
+
 	
 	
 ##Työn lyhyt kuvaus:
@@ -23,7 +23,7 @@ Harjoitustyösuunnitelma versio 0.1
 	-Jääkaappi (Saunajuomat, lämpötila, täyttäminen)
 	-Saunojien lisääminen/vähentäminen (Kavereita kylään saunomaan, lähtee saunomasta yms)
 	-Peseytyminen (Palju?, suihku?, amme?)
-	
+	-Versiohallinta GitHubissa
 
 
 
