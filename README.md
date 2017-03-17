@@ -29,8 +29,8 @@ Harjoitustyösuunnitelma versio 0.1
 	
 	
 ## Colums and Rows numberede
-Colums left to right
-Rows top to bottom
+Colums left to right  
+Rows top to bottom  
 ![](http://i.imgur.com/iLpINB5.png)
 
 
