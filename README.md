@@ -14,16 +14,16 @@ Harjoitustyösuunnitelma versio 0.1
 	
 	
 ## Työn lyhyt kuvaus:
-	My Summer Car:ista vaikutteita saanut Saunomispeli.
-	Tarkoitettu humoristiseksi ajanvietteeksi parodioiden suomalaista saunomiskulttuuria.
+	JAMK:in opettajien palkkaus- ja rahantekopeli
 	
 	
 ## Ominaisuuksia:
-	-Kiukaan ominaisuudet (Löyly, lämpötila, ajastin)
-	-Jääkaappi (Saunajuomat, lämpötila, täyttäminen)
-	-Saunojien lisääminen/vähentäminen (Kavereita kylään saunomaan, lähtee saunomasta yms)
-	-Peseytyminen (Palju?, suihku?, amme?)
-	-Versiohallinta GitHubissa
+	-Opettajien palkkaus
+	-Palkan muuntelu
+	-Juokseva palkka -> Esim, 5s välein opettaja tienaa 1000$
+	-Opettajien erottaminen
+	-Opettajien ja palkkojen tallentaminen siten, että tiedot eivät nollaannu sovelluksen sulkeutuessa
+	
 
 
 
