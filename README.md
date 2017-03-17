@@ -1,7 +1,3 @@
-# ttos0200-harkkatyo
-Olio-Ohjelmoinnin harjoitustyön repositorio
-
-
 # TTOS0200 Olio-Ohjelmointi
 Harjoitustyösuunnitelma versio 0.1
 
