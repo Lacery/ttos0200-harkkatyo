@@ -1,17 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using Windows.System.Threading;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+
+
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -42,11 +35,7 @@ namespace harkkatyo
 
         }
 
-        private void addPalkka1Button_Click(object sender, RoutedEventArgs e)
-        {
-            double muuttuja = double.Parse(palkka1TextBlock.Text);
-            palkka1TextBlock.Text = Ari.PalkanLasku(muuttuja).ToString();
-        }
+        //TÄSTÄ ALASPÄIN ON ADDPALKKAXBUTTON:IEN KOODIT
 
         private void addPalkka2Button_Click(object sender, RoutedEventArgs e)
         {
@@ -65,5 +54,59 @@ namespace harkkatyo
             double muuttuja = double.Parse(palkka4TextBlock.Text);
             palkka4TextBlock.Text = Mieskolainen.PalkanLasku(muuttuja).ToString();
         }
+
+        private void page2Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Page2));
+        }
+
+
+        //TÄSTÄ ETEENPÄIN TULEE PROGRESSBAR1:N KOODIT
+        //Timerit vaatii namespacet:
+        //using System;
+        //using Windows.UI.Core;
+        //using Windows.UI.Xaml;
+        //using Windows.UI.Xaml.Controls;
+        //using Windows.System.Threading;
+
+
+
+        private ThreadPoolTimer PeriodicTimer;
+
+
+        private void addPalkka1Button_Click(object sender, RoutedEventArgs e) //Käynnistää ajastimen palkan lisäämiselle
+        {
+            TimeSpan period = TimeSpan.FromSeconds(1);
+            PeriodicTimer = ThreadPoolTimer.CreatePeriodicTimer(ElapsedHander, period, DestroydHandler);
+
+        }
+
+
+        private async void ElapsedHander(ThreadPoolTimer timer)
+        {
+            // update UI
+            await Dispatcher.RunAsync(CoreDispatcherPriority.High,
+                () =>
+                {
+                    // UI components can be accessed within this scope
+                    PBar.Value = PBar.Value + 1;
+                    if (PBar.Value == 5) { palkka1TextBlock.Text = Ari.PalkanLasku(double.Parse(palkka1TextBlock.Text)).ToString(); PBar.Value = 0; } //Lisää palkkaa joka 5. sekunti
+                });
+        }
+
+        private void StopButton_Click(object sender, RoutedEventArgs e) //Lopettaa palkan lisäämisen Stop nappulasta
+        {
+            PeriodicTimer.Cancel();
+        }
+
+        private async void DestroydHandler(ThreadPoolTimer timer)
+        {
+            await Dispatcher.RunAsync(CoreDispatcherPriority.High,
+            () =>
+            {
+                // UI components can be accessed within this scope.
+            });
+        }
+
     }
 }
