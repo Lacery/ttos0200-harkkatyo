@@ -37,9 +37,9 @@
         <RelativePanel Grid.Column="1" Grid.Row="1">
             <TextBlock x:Name="nimi1TextBlock" Text="asdfasdf" FontSize="35" HorizontalAlignment="Left" Margin="30,20,0,0" />
             <TextBlock x:Name="palkka1TextBlock" Text="0" FontSize="35" Grid.Column="1" Grid.Row="1" RelativePanel.Below="nimi1TextBlock" Margin="30,10,0,0" />
-            <Button x:Name="addPalkka1Button" Content="Start" FontSize="35" Margin="30,10,0,0" RelativePanel.Below="palkka1TextBlock" Click="addPalkka1Button_Click"/>
-            <Button x:Name="StopButton" Content="Stop" FontSize="35" RelativePanel.RightOf="addPalkka1Button" RelativePanel.Below="palkka1TextBlock" Margin="30,10,0,0" Click="StopButton_Click"/>
-            <ProgressBar Name="PBar" RelativePanel.Below="addPalkka1Button" Width="300" Height="60" Value="0" Margin="30,10,0,0" Maximum="5" />
+            <Button x:Name="StartButton" Content="Start" FontSize="35" Margin="30,10,0,0" RelativePanel.Below="palkka1TextBlock" Click="StartButton_Click"/>
+            <Button x:Name="StopButton" Content="Stop" FontSize="35" RelativePanel.RightOf="StartButton" RelativePanel.Below="palkka1TextBlock" Margin="30,10,0,0" Click="StopButton_Click"/>
+            <ProgressBar Name="PBar" RelativePanel.Below="StartButton" Width="300" Height="60" Value="0" Margin="30,10,0,0" Maximum="5" />
         </RelativePanel>
 
         <RelativePanel Grid.Column="2" Grid.Row="1">

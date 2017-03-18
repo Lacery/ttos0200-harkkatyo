@@ -74,7 +74,7 @@ namespace harkkatyo
         private ThreadPoolTimer PeriodicTimer;
 
 
-        private void addPalkka1Button_Click(object sender, RoutedEventArgs e) //Käynnistää ajastimen palkan lisäämiselle
+        private void StartButton_Click(object sender, RoutedEventArgs e) //Käynnistää ajastimen palkan lisäämiselle
         {
             TimeSpan period = TimeSpan.FromSeconds(1);
             PeriodicTimer = ThreadPoolTimer.CreatePeriodicTimer(ElapsedHander, period, DestroydHandler);
