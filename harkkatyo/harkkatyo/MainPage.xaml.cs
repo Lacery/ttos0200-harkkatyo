@@ -74,32 +74,32 @@ namespace harkkatyo
         private ThreadPoolTimer PeriodicTimer;
 
 
-        private void StartButton_Click(object sender, RoutedEventArgs e) //Käynnistää ajastimen palkan lisäämiselle
+        private void Start1Button_Click(object sender, RoutedEventArgs e) //Käynnistää ajastimen palkan lisäämiselle
         {
-            TimeSpan period = TimeSpan.FromSeconds(1);
+            TimeSpan period = TimeSpan.FromSeconds(0.01);
             PeriodicTimer = ThreadPoolTimer.CreatePeriodicTimer(ElapsedHander, period, DestroydHandler);
 
         }
 
 
-        private async void ElapsedHander(ThreadPoolTimer timer)
+        private async void ElapsedHander(ThreadPoolTimer timer) //Ajaa progressbaria
         {
             // update UI
             await Dispatcher.RunAsync(CoreDispatcherPriority.High,
                 () =>
                 {
                     // UI components can be accessed within this scope
-                    PBar.Value = PBar.Value + 1;
-                    if (PBar.Value == 5) { palkka1TextBlock.Text = Ari.PalkanLasku(double.Parse(palkka1TextBlock.Text)).ToString(); PBar.Value = 0; } //Lisää palkkaa joka 5. sekunti
+                    PBar1.Value = PBar1.Value + 1;
+                    if (PBar1.Value == 500) { palkka1TextBlock.Text = Ari.PalkanLasku(double.Parse(palkka1TextBlock.Text)).ToString(); PBar1.Value = 0; } //Lisää palkkaa joka 5. sekunti
                 });
         }
 
-        private void StopButton_Click(object sender, RoutedEventArgs e) //Lopettaa palkan lisäämisen Stop nappulasta
+        private void Stop1Button_Click(object sender, RoutedEventArgs e) //Lopettaa palkan lisäämisen Stop nappulasta
         {
             PeriodicTimer.Cancel();
         }
 
-        private async void DestroydHandler(ThreadPoolTimer timer)
+        private async void DestroydHandler(ThreadPoolTimer timer) //Pysäyttää progressbarin
         {
             await Dispatcher.RunAsync(CoreDispatcherPriority.High,
             () =>
@@ -107,6 +107,11 @@ namespace harkkatyo
                 // UI components can be accessed within this scope.
             });
         }
+
+
+
+        //|-------------------------------------------------------------------------------------------|
+        
 
     }
 }

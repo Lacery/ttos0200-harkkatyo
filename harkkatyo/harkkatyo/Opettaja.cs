@@ -32,7 +32,7 @@ namespace harkkatyo
 
         public double PalkanLasku(double numero)
         {
-            return numero+10;
+            return numero+100;
         }
 
 
