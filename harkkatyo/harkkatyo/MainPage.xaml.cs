@@ -30,8 +30,6 @@ namespace harkkatyo
             palkka2TextBlock.Text = Narsu.Palkka.ToString();
             nimi3TextBlock.Text = Jarmo.Nimi;
             palkka3TextBlock.Text = Jarmo.Palkka.ToString();
-            nimi4TextBlock.Text = Mieskolainen.Nimi;
-            palkka4TextBlock.Text = Mieskolainen.Palkka.ToString();
 
         }
 
@@ -48,12 +46,7 @@ namespace harkkatyo
             double muuttuja = double.Parse(palkka3TextBlock.Text);
             palkka3TextBlock.Text = Jarmo.PalkanLasku(muuttuja).ToString();
         }
-
-        private void addPalkka4Button_Click(object sender, RoutedEventArgs e)
-        {
-            double muuttuja = double.Parse(palkka4TextBlock.Text);
-            palkka4TextBlock.Text = Mieskolainen.PalkanLasku(muuttuja).ToString();
-        }
+        
 
         private void page2Button_Click(object sender, RoutedEventArgs e)
         {
@@ -108,10 +101,16 @@ namespace harkkatyo
             });
         }
 
+        private void palkkaa4Button_Click(object sender, RoutedEventArgs e)
+        {
+
+
+        }
+
 
 
         //|-------------------------------------------------------------------------------------------|
-        
+
 
     }
 }
