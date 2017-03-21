@@ -74,6 +74,7 @@ namespace harkkatyo
                     PBar1.Value = PBar1.Value + 1;
                     if (PBar1.Value == 500) {
                         palkka1TextBlock.Text = Ari.PalkanLasku(double.Parse(palkka1TextBlock.Text)).ToString();
+                        totalMoneyTextBlock.Text = Ari.Rahat.ToString() + Narsu.Rahat.ToString() + Jarmo.Rahat.ToString() + Mieskolainen.Rahat.ToString();
                         PBar1.Value = 0;
                     } //Lisää palkkaa joka 5. sekunti
                     
@@ -85,7 +86,11 @@ namespace harkkatyo
                 () =>
                 {
                     PBar2.Value = PBar2.Value + 1;
-                    if (PBar2.Value == 300) { palkka2TextBlock.Text = Narsu.PalkanLasku(double.Parse(palkka2TextBlock.Text)).ToString(); PBar2.Value = 0; } //Lisää palkkaa joka 3. sekunti
+                    if (PBar2.Value == 300) {
+                        palkka2TextBlock.Text = Narsu.PalkanLasku(double.Parse(palkka2TextBlock.Text)).ToString();
+                        totalMoneyTextBlock.Text = Ari.Rahat.ToString() + Narsu.Rahat.ToString() + Jarmo.Rahat.ToString() + Mieskolainen.Rahat.ToString();
+                        PBar2.Value = 0;
+                    } //Lisää palkkaa joka 3. sekunti
                 });
         }
         private async void ElapsedHander3(ThreadPoolTimer timer) //Ajaa progressbar3:sta
@@ -94,7 +99,11 @@ namespace harkkatyo
                 () =>
                 {
                     PBar3.Value = PBar3.Value + 1;
-                    if (PBar3.Value == 100) { palkka3TextBlock.Text = Jarmo.PalkanLasku(double.Parse(palkka3TextBlock.Text)).ToString(); PBar3.Value = 0; } //Lisää palkkaa joka sekunti
+                    if (PBar3.Value == 100) {
+                        palkka3TextBlock.Text = Jarmo.PalkanLasku(double.Parse(palkka3TextBlock.Text)).ToString();
+                        totalMoneyTextBlock.Text = Ari.Rahat.ToString() + Narsu.Rahat.ToString() + Jarmo.Rahat.ToString() + Mieskolainen.Rahat.ToString();
+                        PBar3.Value = 0;
+                    } //Lisää palkkaa joka sekunti
                 });
         }
         private async void ElapsedHander4(ThreadPoolTimer timer) //Ajaa progressbar4:sta
@@ -103,7 +112,11 @@ namespace harkkatyo
                 () =>
                 {
                     PBar4.Value = PBar4.Value + 1;
-                    if (PBar4.Value == 700) { palkka4TextBlock.Text = Mieskolainen.PalkanLasku(double.Parse(palkka4TextBlock.Text)).ToString(); PBar4.Value = 0; } //Lisää palkkaa 7. joka sekunti
+                    if (PBar4.Value == 700) {
+                        palkka4TextBlock.Text = Mieskolainen.PalkanLasku(double.Parse(palkka4TextBlock.Text)).ToString();
+                        totalMoneyTextBlock.Text = Ari.Rahat.ToString() + Narsu.Rahat.ToString() + Jarmo.Rahat.ToString() + Mieskolainen.Rahat.ToString();
+                        PBar4.Value = 0;
+                    } //Lisää palkkaa 7. joka sekunti
                 });
         }
 

@@ -16,6 +16,7 @@ namespace harkkatyo
         private double rahat = 0;
 
 
+
         public string Nimi;
 
         public double Palkka
@@ -23,7 +24,11 @@ namespace harkkatyo
             get { return palkka; }
             set { palkka = value;  }
         }
-
+        public double Rahat
+        {
+            get { return rahat; }
+            set { rahat = value; }
+        }
 
         public Opettaja()
         {
@@ -38,7 +43,8 @@ namespace harkkatyo
 
         public double PalkanLasku(double numero)
         {
-            return numero*2;
+            Rahat += numero;
+            return Palkka;
         }
         
         
