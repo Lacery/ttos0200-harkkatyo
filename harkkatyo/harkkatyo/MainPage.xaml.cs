@@ -101,9 +101,62 @@ namespace harkkatyo
             });
         }
 
-        private void palkkaa4Button_Click(object sender, RoutedEventArgs e)
+        private void palkkaa4Button_Click(object sender, RoutedEventArgs e) //Korvataan "Palkkaa" boxi opettajan palkanjuoksuobjekteilla
         {
 
+            //Nimi4TextBlock
+            TextBlock nimi4TextBlock = new TextBlock();
+            nimi4TextBlock.Text = Mieskolainen.Nimi;
+            nimi4TextBlock.FontSize = 35;
+            Thickness margin = nimi4TextBlock.Margin;
+            margin.Left = 30;
+            margin.Top = 20;
+            nimi4TextBlock.Margin = margin;
+            nelosRelativePanel.Children.Add(nimi4TextBlock);
+            
+            
+            //Palkka4TextBlock
+            TextBlock palkka4TextBlock = new TextBlock();
+            palkka4TextBlock.Text = Mieskolainen.Palkka.ToString();
+            palkka4TextBlock.FontSize = 35;
+            Thickness margin2 = palkka4TextBlock.Margin;
+            margin2.Left = 30;
+            margin2.Top = 10;
+            palkka4TextBlock.Margin = margin2;
+            nelosRelativePanel.Children.Add(palkka4TextBlock);
+            RelativePanel.SetBelow(palkka4TextBlock, nimi4TextBlock);
+
+            //Start4Button
+            Button Start4Button = new Button();
+            Start4Button.Content = "Start";
+            Start4Button.FontSize = 35;
+            Start4Button.Margin = margin2;
+            Start4Button.Click += Start1Button_Click;
+            nelosRelativePanel.Children.Add(Start4Button);
+            RelativePanel.SetBelow(Start4Button, palkka4TextBlock);
+            
+            //Stop4Button
+            Button Stop4Button = new Button();
+            Stop4Button.Content = "Stop";
+            Stop4Button.FontSize = 35;
+            Stop4Button.Margin = margin2;
+            Stop4Button.Click += Stop1Button_Click;
+            nelosRelativePanel.Children.Add(Stop4Button);
+            RelativePanel.SetRightOf(Stop4Button, Start4Button);
+            RelativePanel.SetBelow(Stop4Button, palkka4TextBlock);
+
+            //ProgressBar4
+            ProgressBar Pbar4 = new ProgressBar();
+            Pbar4.Width = 300;
+            Pbar4.Height = 60;
+            Pbar4.Value = 300;
+            Pbar4.Maximum = 500;
+            Pbar4.Margin = margin2;
+            nelosRelativePanel.Children.Add(Pbar4);
+            RelativePanel.SetBelow(Pbar4, Start4Button);
+
+
+            nelosRelativePanel.Children.Remove(palkkaa4Button);
 
         }
 

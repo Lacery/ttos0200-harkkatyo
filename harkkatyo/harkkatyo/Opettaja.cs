@@ -10,6 +10,8 @@ namespace harkkatyo
     {
         private double palkka = 2000;
 
+
+
         public string Nimi;
 
         public double Palkka
@@ -34,6 +36,9 @@ namespace harkkatyo
         {
             return numero+100;
         }
+
+
+
 
 
     }

@@ -8,7 +8,7 @@
     mc:Ignorable="d">
 
 
-    <Grid>
+    <Grid x:Name="myGrid">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="CadetBlue" Offset="0"/>
@@ -56,9 +56,9 @@
             <Button x:Name="addPalkka3Button" Content="TESTI" FontSize="35" Margin="30,10,0,0" RelativePanel.Below="palkka3TextBlock" Click="addPalkka3Button_Click"/>
         </RelativePanel>
 
-        <StackPanel Grid.Column="2" Grid.Row="2"> <!--Alaoikean gridin sisältö-->
-            <Button x:Name="palkkaa4Button" Content="PALKKAA" FontSize="35" Margin="90,120,0,0" Click="palkkaa4Button_Click"  />
-        </StackPanel>
+        <RelativePanel Grid.Column="2" Grid.Row="2" x:Name="nelosRelativePanel" > <!--Alaoikean gridin sisältö-->
+            <Button x:Name="palkkaa4Button" Content="Palkkaa Mieskolainen" FontSize="35" Margin="90,120,0,0" Click="palkkaa4Button_Click"  />
+        </RelativePanel>
         <TextBlock x:Name="titleTextBlock" Text="Otsikko" FontSize="50" />
         <Button x:Name="page2Button" Content="Page 2" Grid.Column="0" Grid.Row="2" FontSize="35" Margin="30,0,0,0" Click="page2Button_Click"/>
     </Grid>
