@@ -89,24 +89,24 @@ namespace harkkatyo
         private void palkkaa2Button_Click(object sender, RoutedEventArgs e) //Korvataan "Palkkaa" boxi opettajan palkanjuoksucontroleilla
         {
 
-            LuoOpettaja(2);
+            ShowTeacher(2);
             kakkosRelativePanel.Children.Remove(palkkaa2Button);
         }
 
         private void palkkaa3Button_Click(object sender, RoutedEventArgs e) //Korvataan "Palkkaa" boxi opettajan palkanjuoksucontroleilla
         {
 
-            LuoOpettaja(3);
+            ShowTeacher(3);
             kolmosRelativePanel.Children.Remove(palkkaa3Button);
         }
         
         private void palkkaa4Button_Click(object sender, RoutedEventArgs e) //Korvataan "Palkkaa" boxi opettajan palkanjuoksucontroleilla
         {
-            LuoOpettaja(4);
+            ShowTeacher(4);
             nelosRelativePanel.Children.Remove(palkkaa4Button);
         }
 
-        public void LuoOpettaja(int numero)
+        public void ShowTeacher(int numero)
         {
 
             switch (numero)
