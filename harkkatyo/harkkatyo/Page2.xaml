@@ -11,5 +11,7 @@
         <ProgressBar Margin="10,10,0,13" Name="PBar" HorizontalAlignment="Center" VerticalAlignment="Center" Width="600" Height="80" Value="0"  />
         <Button x:Name="StartButton" FontSize="35" Content="Start" VerticalAlignment="Top" HorizontalAlignment="Center" Click="StartButton_Click"/>
         <Button x:Name="StopButton" FontSize="35" Content="Stop" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,100,0,0" Click="StopButton_Click"/>
+        <Button x:Name="backButton" Content="Back" Grid.Column="0" Grid.Row="2" FontSize="35" Margin="30,0,0,0" Click="backButton_Click"/>
+        
     </Grid>
 </Page>

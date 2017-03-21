@@ -29,8 +29,8 @@
         </Grid.ColumnDefinitions>
         <RelativePanel Grid.Column="0" Grid.Row="1">
             <Button x:Name="instructionsButton" Content="Instructions" FontSize="35" Margin="20,20,0,0" Width="200"/>
-            <Button x:Name="palkkausValikkoButton" Content="Palkkaa" FontSize="35" RelativePanel.Below="instructionsButton" Margin="20,10,0,0" Width="200"/>
-            <Button x:Name="joku2Button" Content="Jotain" FontSize="35" RelativePanel.Below="palkkausValikkoButton" Margin="20,10,0,0" Width="200"/>
+            <Button x:Name="joku1Button" Content="Jotain" FontSize="35" RelativePanel.Below="instructionsButton" Margin="20,10,0,0" Width="200"/>
+            <Button x:Name="joku2Button" Content="Jotain" FontSize="35" RelativePanel.Below="joku1Button" Margin="20,10,0,0" Width="200"/>
             <Button x:Name="joku3Button" Content="Jotain" FontSize="35" RelativePanel.Below="joku2Button" Margin="20,10,0,0" Width="200"/>
         </RelativePanel>
         

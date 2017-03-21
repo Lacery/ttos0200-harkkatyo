@@ -101,7 +101,7 @@ namespace harkkatyo
             });
         }
 
-        private void palkkaa4Button_Click(object sender, RoutedEventArgs e) //Korvataan "Palkkaa" boxi opettajan palkanjuoksuobjekteilla
+        private void palkkaa4Button_Click(object sender, RoutedEventArgs e) //Korvataan "Palkkaa" boxi opettajan palkanjuoksucontroleilla
         {
 
             //Nimi4TextBlock
@@ -161,8 +161,7 @@ namespace harkkatyo
         }
 
 
-
-        //|-------------------------------------------------------------------------------------------|
+        
 
 
     }
