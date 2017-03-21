@@ -22,6 +22,11 @@ Harjoitustyösuunnitelma versio 0.1
 	-Ansaitulla rahalla voi ostaa lisää omaisuutta (Veneitä, taloja, autoja, kaljaa, kissoja)
 		*Mahdollinen ostovalikko(?)
 		*Omaisuudet nähtävissä erillisellä sivulla
+
+## Ajankäyttö
+|Päivämäärä | Käytetty aika| Kuka |  
+|:-----|-------------|--------:|  
+|21.3.2017|2h|Ville|  
 	
 	
 ## Colums and Rows numbered
