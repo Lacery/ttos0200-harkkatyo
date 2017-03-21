@@ -12,8 +12,8 @@ namespace harkkatyo
 {
     class Opettaja
     {
-        private double palkka = 2000;
-
+        private double palkka;
+        private double rahat = 0;
 
 
         public string Nimi;
