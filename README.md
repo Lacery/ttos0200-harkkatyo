@@ -26,7 +26,8 @@ Harjoitustyösuunnitelma versio 0.1
 ## Ajankäyttö
 |Päivämäärä | Käytetty aika| Kuka |  
 |:-----|-------------|--------:|  
-|21.3.2017|2h|Ville|  
+|17.3.|3h|Ville ja Oskari|  
+|21.3.|2h|Ville|  
 	
 	
 ## Colums and Rows numbered
