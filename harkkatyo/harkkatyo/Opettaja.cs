@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.System.Threading;
+using Windows.UI.Core;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 namespace harkkatyo
 {
@@ -34,12 +38,10 @@ namespace harkkatyo
 
         public double PalkanLasku(double numero)
         {
-            return numero+100;
+            return numero*2;
         }
-
-
-
-
+        
+        
 
     }
 }

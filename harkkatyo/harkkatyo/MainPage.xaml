@@ -27,14 +27,16 @@
             <ColumnDefinition Width="465"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <RelativePanel Grid.Column="0" Grid.Row="1">
+        
+        <RelativePanel Grid.Column="0" Grid.Row="1"><!--Valikko-->
             <Button x:Name="instructionsButton" Content="Instructions" FontSize="35" Margin="20,20,0,0" Width="200"/>
             <Button x:Name="joku1Button" Content="Jotain" FontSize="35" RelativePanel.Below="instructionsButton" Margin="20,10,0,0" Width="200"/>
             <Button x:Name="joku2Button" Content="Jotain" FontSize="35" RelativePanel.Below="joku1Button" Margin="20,10,0,0" Width="200"/>
             <Button x:Name="joku3Button" Content="Jotain" FontSize="35" RelativePanel.Below="joku2Button" Margin="20,10,0,0" Width="200"/>
         </RelativePanel>
         
-        <RelativePanel Grid.Column="1" Grid.Row="1"> <!--Ylävasemman gridin sisältö -->
+        <RelativePanel Grid.Column="1" Grid.Row="1"> 
+            <!--Ylävasemman gridin sisältö -->
             <TextBlock x:Name="nimi1TextBlock" Text="" FontSize="35" HorizontalAlignment="Left" Margin="30,20,0,0" />
             <TextBlock x:Name="palkka1TextBlock" Text="0" FontSize="35" Grid.Column="1" Grid.Row="1" RelativePanel.Below="nimi1TextBlock" Margin="30,10,0,0" />
             <Button x:Name="Start1Button" Content="Start" FontSize="35" Margin="30,10,0,0" RelativePanel.Below="palkka1TextBlock" Click="Start1Button_Click"/>
@@ -42,23 +44,38 @@
             <ProgressBar Name="PBar1" RelativePanel.Below="Start1Button" Width="300" Height="60" Value="0" Margin="30,10,0,0" Maximum="500"  />
         </RelativePanel>
 
-        <RelativePanel Grid.Column="2" Grid.Row="1"> <!--Yläoikean gridin sisältö -->
-            <TextBlock x:Name="nimi2TextBlock" Text="" FontSize="35" HorizontalAlignment="Left" Margin="30,20,0,0" />
-            <TextBlock x:Name="palkka2TextBlock" Text="0" FontSize="35" Grid.Column="1" Grid.Row="1" RelativePanel.Below="nimi2TextBlock" Margin="30,10,0,0" />
-            <Button x:Name="Start2Button" Content="Start" FontSize="35" Margin="30,10,0,0" RelativePanel.Below="palkka2TextBlock" Click="Start1Button_Click"/>
-            <Button x:Name="Stop2Button" Content="Stop" FontSize="35" RelativePanel.RightOf="Start2Button" RelativePanel.Below="palkka2TextBlock" Margin="30,10,0,0" Click="Stop1Button_Click"/>
-            <ProgressBar Name="PBar2" RelativePanel.Below="Start2Button" Width="300" Height="60" Value="0" Margin="30,10,0,0" Maximum="500"  />
+        <RelativePanel Grid.Column="2" Grid.Row="1" Name="kakkosRelativePanel">
+            <!--Yläoikean gridin sisältö -->
+            <Button x:Name="palkkaa2Button" Content="Palkkaa Narsu" FontSize="35" Margin="90,120,0,0" Click="palkkaa2Button_Click"  />
+            <TextBlock x:Name="nimi2TextBlock" Text="" FontSize="35" HorizontalAlignment="Left" Margin="30,20,0,0" Visibility="Collapsed"/>
+            <TextBlock x:Name="palkka2TextBlock" Text="0" FontSize="35" Grid.Column="1" Grid.Row="1" RelativePanel.Below="nimi2TextBlock" Margin="30,10,0,0" Visibility="Collapsed"/>
+            <Button x:Name="Start2Button" Content="Start" FontSize="35" Margin="30,10,0,0" RelativePanel.Below="palkka2TextBlock" Click="Start1Button_Click" Visibility="Collapsed"/>
+            <Button x:Name="Stop2Button" Content="Stop" FontSize="35" RelativePanel.RightOf="Start2Button" RelativePanel.Below="palkka2TextBlock" Margin="30,10,0,0" Click="Stop1Button_Click" Visibility="Collapsed"/>
+            <ProgressBar Name="PBar2" RelativePanel.Below="Start2Button" Width="300" Height="60" Value="0" Margin="30,10,0,0" Maximum="300" Visibility="Collapsed"/>
         </RelativePanel>
 
-        <RelativePanel Grid.Column="1" Grid.Row="2"> <!--Alavasemman gridin sisältö-->
-            <TextBlock x:Name="nimi3TextBlock" Text="" FontSize="35" HorizontalAlignment="Left" Margin="30,20,0,0" />
-            <TextBlock x:Name="palkka3TextBlock" Text="0" FontSize="35" Grid.Column="1" Grid.Row="1" RelativePanel.Below="nimi3TextBlock" Margin="30,10,0,0" />
-            <Button x:Name="addPalkka3Button" Content="TESTI" FontSize="35" Margin="30,10,0,0" RelativePanel.Below="palkka3TextBlock" Click="addPalkka3Button_Click"/>
+        <RelativePanel Grid.Column="1" Grid.Row="2" Name="kolmosRelativePanel">
+            <!--Alavasemman gridin sisältö-->
+            <Button x:Name="palkkaa3Button" Content="Palkkaa Narsu" FontSize="35" Margin="90,120,0,0" Click="palkkaa3Button_Click"  />
+            <TextBlock x:Name="nimi3TextBlock" Text="" FontSize="35" HorizontalAlignment="Left" Margin="30,20,0,0" Visibility="Collapsed"/>
+            <TextBlock x:Name="palkka3TextBlock" Text="0" FontSize="35" Grid.Column="1" Grid.Row="1" RelativePanel.Below="nimi3TextBlock" Margin="30,10,0,0" Visibility="Collapsed"/>
+            <Button x:Name="Start3Button" Content="Start" FontSize="35" Margin="30,10,0,0" RelativePanel.Below="palkka3TextBlock" Click="Start1Button_Click" Visibility="Collapsed"/>
+            <Button x:Name="Stop3Button" Content="Stop" FontSize="35" RelativePanel.RightOf="Start3Button" RelativePanel.Below="palkka3TextBlock" Margin="30,10,0,0" Click="Stop1Button_Click" Visibility="Collapsed"/>
+            <ProgressBar Name="PBar3" RelativePanel.Below="Start3Button" Width="300" Height="60" Value="0" Margin="30,10,0,0" Maximum="100" Visibility="Collapsed"/>
         </RelativePanel>
 
-        <RelativePanel Grid.Column="2" Grid.Row="2" x:Name="nelosRelativePanel" > <!--Alaoikean gridin sisältö-->
-            <Button x:Name="palkkaa4Button" Content="Palkkaa Mieskolainen" FontSize="35" Margin="90,120,0,0" Click="palkkaa4Button_Click"  />
+        <RelativePanel Grid.Column="2" Grid.Row="2" Name="nelosRelativePanel" >
+            <!--Alaoikean gridin sisältö-->
+            <Button x:Name="palkkaa4Button" Content="Palkkaa Narsu" FontSize="35" Margin="90,120,0,0" Click="palkkaa4Button_Click"  />
+            <TextBlock x:Name="nimi4TextBlock" Text="" FontSize="35" HorizontalAlignment="Left" Margin="30,20,0,0" Visibility="Collapsed"/>
+            <TextBlock x:Name="palkka4TextBlock" Text="0" FontSize="35" Grid.Column="1" Grid.Row="1" RelativePanel.Below="nimi4TextBlock" Margin="30,10,0,0" Visibility="Collapsed"/>
+            <Button x:Name="Start4Button" Content="Start" FontSize="35" Margin="30,10,0,0" RelativePanel.Below="palkka4TextBlock" Click="Start1Button_Click" Visibility="Collapsed"/>
+            <Button x:Name="Stop4Button" Content="Stop" FontSize="35" RelativePanel.RightOf="Start4Button" RelativePanel.Below="palkka4TextBlock" Margin="30,10,0,0" Click="Stop1Button_Click" Visibility="Collapsed"/>
+            <ProgressBar Name="PBar4" RelativePanel.Below="Start4Button" Width="300" Height="60" Value="0" Margin="30,10,0,0" Maximum="700" Visibility="Collapsed"/>
         </RelativePanel>
+        
+        
+        
         <TextBlock x:Name="titleTextBlock" Text="Otsikko" FontSize="50" />
         <Button x:Name="page2Button" Content="Page 2" Grid.Column="0" Grid.Row="2" FontSize="35" Margin="30,0,0,0" Click="page2Button_Click"/>
     </Grid>
