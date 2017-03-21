@@ -12,6 +12,7 @@
         <Button x:Name="StartButton" FontSize="35" Content="Start" VerticalAlignment="Top" HorizontalAlignment="Center" Click="StartButton_Click"/>
         <Button x:Name="StopButton" FontSize="35" Content="Stop" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,100,0,0" Click="StopButton_Click"/>
         <Button x:Name="backButton" Content="Back" Grid.Column="0" Grid.Row="2" FontSize="35" Margin="30,0,0,0" Click="backButton_Click"/>
-        
+        <Button x:Name="testButton" Content="Test" FontSize="35" Margin="30,200,0,0" Click="testButton_Click"/>
+
     </Grid>
 </Page>

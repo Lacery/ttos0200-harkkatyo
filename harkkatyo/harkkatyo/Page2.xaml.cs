@@ -74,5 +74,29 @@ namespace harkkatyo
         {
             this.Frame.Navigate(typeof(MainPage));
         }
+
+        private async void testButton_Click(object sender, RoutedEventArgs e) //Luo MessageDialogin joka muuttaa testButtonin sisältöä vastaukse perusteella
+        {
+            var dialog = new Windows.UI.Popups.MessageDialog(
+                "Aliquam laoreet magna sit amet mauris iaculis ornare. " +
+                "Morbi iaculis augue vel elementum volutpat.",
+                "Lorem Ipsum");
+            dialog.Commands.Add(new Windows.UI.Popups.UICommand("Yes") { Id = 0 });
+            dialog.Commands.Add(new Windows.UI.Popups.UICommand("No") { Id = 1 });
+
+
+            dialog.DefaultCommandIndex = 0;
+            dialog.CancelCommandIndex = 1;
+
+            var result = await dialog.ShowAsync();
+
+            var btn = sender as Button;
+            btn.Content = $"Result: {result.Label} ({result.Id})"; //Näyttää vastauksen ja vastauksen ID:n
+
+
+            if (Convert.ToInt32(result.Id) == 0) { btn.Content = "Yay"; } //Jos vastaa ID:n 0 (eli kyllä)
+        }
+
+        
     }
 }
