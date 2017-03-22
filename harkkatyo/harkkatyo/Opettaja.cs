@@ -4,6 +4,7 @@ using System.Runtime.Serialization;
 
 namespace harkkatyo
 {
+    
     class Opettaja
     {
         private double palkka;

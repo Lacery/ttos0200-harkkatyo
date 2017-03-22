@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.IO;
 using Windows.System.Threading;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-
+using System.Text;
 
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -336,6 +338,17 @@ namespace harkkatyo
 
         public void saveButton_Click(object sender, RoutedEventArgs e)
         {
+            string dire = @"C:\Users\Viiserilalle\Desktop\savegame.txt";
+            string[] save = {
+                Ari.Nimi, Ari.Klikit.ToString(), Ari.Palkka.ToString(), Ari.Rahat.ToString(),
+                Narsu.Nimi, Narsu.Klikit.ToString(), Narsu.Palkka.ToString(), Narsu.Rahat.ToString(),
+                Jarmo.Nimi, Jarmo.Klikit.ToString(), Jarmo.Palkka.ToString(), Jarmo.Rahat.ToString(),
+                Mieskolainen.Nimi, Mieskolainen.Klikit.ToString(), Mieskolainen.Palkka.ToString(), Mieskolainen.Rahat.ToString()
+            };
+            string asd = "asd";
+
+
+
 
         }
 
