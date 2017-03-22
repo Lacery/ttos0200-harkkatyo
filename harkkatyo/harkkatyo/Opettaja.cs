@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Windows.System.Threading;
-using Windows.UI.Core;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using System.Runtime.Serialization.Json;
+using System.Runtime.Serialization;
 
 namespace harkkatyo
 {
@@ -14,6 +8,7 @@ namespace harkkatyo
     {
         private double palkka;
         private double rahat = 0;
+        private int klikit;
 
 
 
@@ -28,6 +23,11 @@ namespace harkkatyo
         {
             get { return rahat; }
             set { rahat = value; }
+        }
+        public int Klikit
+        {
+            get { return klikit; }
+            set { klikit = value; }
         }
 
         public Opettaja()

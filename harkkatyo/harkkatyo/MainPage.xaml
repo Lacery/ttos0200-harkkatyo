@@ -26,10 +26,10 @@
         <TextBlock x:Name="totalMoneyTextBlock" Text="" FontSize="40" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
 
         <RelativePanel Grid.Column="0" Grid.Row="1"><!--Valikko-->
-            <Button x:Name="instructionsButton" Content="Instructions" FontSize="35" Margin="20,20,0,0" Width="200"/>
-            <Button x:Name="boostsButton" Content="Boosts" FontSize="35" RelativePanel.Below="instructionsButton" Margin="20,10,0,0" Width="200"/>
-            <Button x:Name="saveButton" Content="Save" FontSize="35" RelativePanel.Below="boostsButton" Margin="20,10,0,0" Width="200"/>
-            <Button x:Name="joku3Button" Content="Jotain" FontSize="35" RelativePanel.Below="saveButton" Margin="20,10,0,0" Width="200"/>
+            <Button x:Name="instructionsButton" Content="Instructions" FontSize="35" Margin="20,20,0,0" Width="300"/>
+            <Button x:Name="boostsButton" Content="Boosts" FontSize="35" RelativePanel.Below="instructionsButton" Margin="20,10,0,0" Width="300"/>
+            <Button x:Name="saveButton" Content="Save" FontSize="35" RelativePanel.Below="boostsButton" Margin="20,10,0,0" Width="300" Click="saveButton_Click"/>
+            <Button x:Name="achievementsButton" Content="Achievements" FontSize="35" RelativePanel.Below="saveButton" Margin="20,10,0,0" Width="300"/>
         </RelativePanel>
         
         <RelativePanel Grid.Column="1" Grid.Row="1" Name="ykkosRelativePanel">
@@ -74,6 +74,7 @@
         
         
         <Button x:Name="page2Button" Content="Page 2" Grid.Column="0" Grid.Row="2" FontSize="35" Margin="30,0,0,0" Click="page2Button_Click"/>
+        <Button x:Name="nollausButton" Content="Nollaa rahat" Grid.Column="0" Grid.Row="2" FontSize="35" Margin="30,130,0,0" Click="nollausButton_Click"/>
     </Grid>
     
 </Page>
