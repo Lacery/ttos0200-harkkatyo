@@ -6,7 +6,20 @@ using Windows.System.Threading;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.Storage;
 using System.Text;
+
+
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Linq;
+using System.Runtime.Serialization;
+using Windows.Foundation;
+using Windows.UI.Popups;
+using Windows.UI.ViewManagement;
+using Windows.UI.Xaml.Media.Imaging;
+using Windows.UI.Xaml.Navigation;
+
 
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -18,6 +31,9 @@ namespace harkkatyo
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        List<Opettaja> opettajat = new List<Opettaja>();
+
+
         Opettaja Ari = new Opettaja("Ari", 5);
         Opettaja Narsu = new Opettaja("Narsu", 10);
         Opettaja Jarmo = new Opettaja("Jarmo", 15);
@@ -35,6 +51,10 @@ namespace harkkatyo
             palkka3TextBlock.Text = Jarmo.Palkka.ToString();
             nimi4TextBlock.Text = Mieskolainen.Nimi;
             palkka4TextBlock.Text = Mieskolainen.Palkka.ToString();
+            opettajat.Add(Ari);
+            opettajat.Add(Narsu);
+            opettajat.Add(Jarmo);
+            opettajat.Add(Mieskolainen);
 
         }
         
@@ -80,6 +100,7 @@ namespace harkkatyo
                         double rahat = Ari.Rahat + Narsu.Rahat + Jarmo.Rahat + Mieskolainen.Rahat;
                         totalMoneyTextBlock.Text = rahat.ToString();
                         Ari.Klikit += 1;
+                        Ari.Rahat = Ari.Rahat + Ari.Palkka;
                         CheckAchievements(rahat);
                         PBar1.Value = 0;
                     } //Lisää palkkaa joka sekunti
@@ -301,7 +322,7 @@ namespace harkkatyo
                 msgd.Commands.Add(new Windows.UI.Popups.UICommand("Proceed") { Id = 0 });
 
                 msgd.DefaultCommandIndex = 0;
-                lista.Add("narsu2");
+                lista.Add("narsu20");
                 Narsu.Palkka = Narsu.Palkka * 1.5;
                 var result = await msgd.ShowAsync();
 
@@ -336,20 +357,44 @@ namespace harkkatyo
 
 
 
-        public void saveButton_Click(object sender, RoutedEventArgs e)
+        public async void saveButton_Click(object sender, RoutedEventArgs e)
         {
-            string dire = @"C:\Users\Viiserilalle\Desktop\savegame.txt";
-            string[] save = {
-                Ari.Nimi, Ari.Klikit.ToString(), Ari.Palkka.ToString(), Ari.Rahat.ToString(),
-                Narsu.Nimi, Narsu.Klikit.ToString(), Narsu.Palkka.ToString(), Narsu.Rahat.ToString(),
-                Jarmo.Nimi, Jarmo.Klikit.ToString(), Jarmo.Palkka.ToString(), Jarmo.Rahat.ToString(),
-                Mieskolainen.Nimi, Mieskolainen.Klikit.ToString(), Mieskolainen.Palkka.ToString(), Mieskolainen.Rahat.ToString()
-            };
-            string asd = "asd";
+            
+            // folder
+            StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+            // delete file if exists
+            IStorageItem employeesItem = await storageFolder.TryGetItemAsync("friends.dat");
+            if (await storageFolder.TryGetItemAsync("friends.dat") != null)
+            {
+                await employeesItem.DeleteAsync();
+            }
+             
+            StorageFile employeesFile = await storageFolder.CreateFileAsync("friends.dat", CreationCollisionOption.OpenIfExists);
+            // save friends to disk
+            Stream stream = await employeesFile.OpenStreamForWriteAsync();
+            DataContractSerializer serializer = new DataContractSerializer(typeof(List<Opettaja>));
+            serializer.WriteObject(stream, opettajat);
+            await stream.FlushAsync();
+            stream.Dispose();
 
 
+        }
+        
+        public async void loadButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+            StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+            Stream stream = await storageFolder.OpenStreamForReadAsync("friends.dat");
+            
 
+            // read data
+            DataContractSerializer serializer = new DataContractSerializer(typeof(List<Opettaja>));
+            opettajat = (List<Opettaja>)serializer.ReadObject(stream);
 
+            foreach (Opettaja opettaja in opettajat)
+            {
+                testausTextBlock.Text += opettaja.Nimi + " " + opettaja.Rahat + Environment.NewLine;
+            }
         }
 
     }
