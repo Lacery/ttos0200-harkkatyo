@@ -31,13 +31,14 @@ namespace harkkatyo
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        List<Opettaja> opettajat = new List<Opettaja>();
+        List<Opettaja> opettajat = new List<Opettaja>(); //Lista tallennukseen ja lataukseen
 
 
         Opettaja Ari = new Opettaja("Ari", 5);
         Opettaja Narsu = new Opettaja("Narsu", 10);
         Opettaja Jarmo = new Opettaja("Jarmo", 15);
         Opettaja Mieskolainen = new Opettaja("Matti", 20);
+        Achievements Saavutukset = new Achievements();
         
         
         public MainPage()
@@ -58,11 +59,7 @@ namespace harkkatyo
 
         }
         
-
-        private void page2Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(Page2));
-        } //Testisivu page2:n siirtyminen
+        
 
         private ThreadPoolTimer PeriodicTimer1, PeriodicTimer2, PeriodicTimer3, PeriodicTimer4;
 
@@ -100,7 +97,6 @@ namespace harkkatyo
                         double rahat = Ari.Rahat + Narsu.Rahat + Jarmo.Rahat + Mieskolainen.Rahat;
                         totalMoneyTextBlock.Text = rahat.ToString();
                         Ari.Klikit += 1;
-                        Ari.Rahat = Ari.Rahat + Ari.Palkka;
                         CheckAchievements(rahat);
                         PBar1.Value = 0;
                     } //Lisää palkkaa joka sekunti
@@ -256,6 +252,17 @@ namespace harkkatyo
 
         }
 
+        private async void instructionsButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            var msgd = new Windows.UI.Popups.MessageDialog(
+                "Ohjeet: Valitse \"Palkkaa\" -nappi palkataksesi haluamasi opettajan. \nKyseisen opettajan palkka alkaa juosta ja tienaat rahaa! Win!");
+
+            msgd.Commands.Add(new Windows.UI.Popups.UICommand("Proceed") { Id = 0 });
+
+            msgd.DefaultCommandIndex = 0;
+            var result = await msgd.ShowAsync();
+        } //Nayttaa ohjeet pelille
 
         public void nollausButton_Click(object sender, RoutedEventArgs e)
         {
@@ -265,97 +272,102 @@ namespace harkkatyo
             Mieskolainen.Rahat = 0;
             totalMoneyTextBlock.Text = 0.ToString();
         }
+        
+        private async void achievementsButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+            var msgd = new Windows.UI.Popups.MessageDialog(Saavutukset.PrintAchievements());
+            msgd.Commands.Add(new Windows.UI.Popups.UICommand("Proceed") { Id = 0 });
 
-        List<string> lista = new List<string>(); //Lista achievementtien ylläpitoon
+            msgd.DefaultCommandIndex = 0;
+            var result = await msgd.ShowAsync();
+            
+        }//Tulostaa achievementit Achievement-luokan kautta
+        
+
         public async void CheckAchievements(double totalmoney)
         {
 
-            if (totalmoney == 100 && (lista.Contains("100") == false)) //Luo ilmoituksen ja tarkistaa ettei saavutusta jo ole
+
+            if (Saavutukset.is100(totalmoney) == true) //Luo ilmoituksen ja tarkistaa ettei saavutusta jo ole
             {
                 var msgd = new Windows.UI.Popups.MessageDialog("Achievement: Gain 100 gold!");
 
                 msgd.Commands.Add(new Windows.UI.Popups.UICommand("Proceed") { Id = 0 });
 
                 msgd.DefaultCommandIndex = 0;
-                lista.Add("100");
                 var result = await msgd.ShowAsync();
             }
 
-            if (totalmoney == 500 && (lista.Contains("500") == false)) //Luo ilmoituksen ja tarkistaa ettei saavutusta jo ole
+            if (Saavutukset.is500(totalmoney) == true) //Luo ilmoituksen ja tarkistaa ettei saavutusta jo ole
             {
                 var msgd = new Windows.UI.Popups.MessageDialog("Achievement: Gain 500 gold!");
 
                 msgd.Commands.Add(new Windows.UI.Popups.UICommand("Proceed") { Id = 0 });
 
                 msgd.DefaultCommandIndex = 0;
-                lista.Add("500");
                 var result = await msgd.ShowAsync();
             }
 
-            if (totalmoney == 1000 && (lista.Contains("1000") == false)) //Luo ilmoituksen ja tarkistaa ettei saavutusta jo ole
+            if (Saavutukset.is1000(totalmoney) == true) //Luo ilmoituksen ja tarkistaa ettei saavutusta jo ole
             {
                 var msgd = new Windows.UI.Popups.MessageDialog("Achievement: Gain 1000 gold!");
 
                 msgd.Commands.Add(new Windows.UI.Popups.UICommand("Proceed") { Id = 0 });
 
                 msgd.DefaultCommandIndex = 0;
-                lista.Add("1000");
                 var result = await msgd.ShowAsync();
             }
 
-            if (Ari.Klikit == 20 && (lista.Contains("ari20") == false))
+            if (Saavutukset.isAriKlikit(Ari.Klikit) == true)
             {
                 var msgd = new Windows.UI.Popups.MessageDialog("Achievement: Ari did 20 loops!");
 
                 msgd.Commands.Add(new Windows.UI.Popups.UICommand("Proceed") { Id = 0 });
 
                 msgd.DefaultCommandIndex = 0;
-                lista.Add("ari20");
                 Ari.Palkka = Ari.Palkka * 1.5;
                 var result = await msgd.ShowAsync();
             }
 
-            if (Narsu.Klikit == 20 && (lista.Contains("narsu20") == false))
+            if (Saavutukset.isNarsuKlikit(Narsu.Klikit) == true)
             {
                 var msgd = new Windows.UI.Popups.MessageDialog("Achievement: Narsu did 20 loops!");
 
                 msgd.Commands.Add(new Windows.UI.Popups.UICommand("Proceed") { Id = 0 });
 
                 msgd.DefaultCommandIndex = 0;
-                lista.Add("narsu20");
                 Narsu.Palkka = Narsu.Palkka * 1.5;
                 var result = await msgd.ShowAsync();
 
             }
-            if (Jarmo.Klikit == 20 && (lista.Contains("jarmo20") == false))
+            if (Saavutukset.isJarmoKlikit(Jarmo.Klikit) == true)
             {
                 var msgd = new Windows.UI.Popups.MessageDialog("Achievement: Jarmo did 20 loops!");
 
                 msgd.Commands.Add(new Windows.UI.Popups.UICommand("Proceed") { Id = 0 });
 
                 msgd.DefaultCommandIndex = 0;
-                lista.Add("jarmo20");
                 Jarmo.Palkka = Jarmo.Palkka * 1.5;
                 var result = await msgd.ShowAsync();
 
             }
-            if (Mieskolainen.Klikit == 20 && (lista.Contains("mieskolainen20") == false))
+            if (Saavutukset.isMieskolainenKlikit(Mieskolainen.Klikit) == true)
             {
                 var msgd = new Windows.UI.Popups.MessageDialog("Achievement: Matti did 20 loops!");
 
                 msgd.Commands.Add(new Windows.UI.Popups.UICommand("Proceed") { Id = 0 });
 
                 msgd.DefaultCommandIndex = 0;
-                lista.Add("mieskolainen20");
                 Mieskolainen.Palkka = Mieskolainen.Palkka * 1.5;
                 var result = await msgd.ShowAsync();
 
             }
+            
 
 
         } //Achievementtien saavutus tarkistetaan jokaisen rahanlisäyksen jälkeen
-
-
+        
 
         public async void saveButton_Click(object sender, RoutedEventArgs e)
         {
@@ -395,6 +407,11 @@ namespace harkkatyo
             {
                 testausTextBlock.Text += opettaja.Nimi + " " + opettaja.Rahat + Environment.NewLine;
             }
+
+            palkka1TextBlock.Text = Ari.Palkka.ToString();
+            palkka2TextBlock.Text = Narsu.Palkka.ToString();
+            palkka3TextBlock.Text = Jarmo.Palkka.ToString();
+            palkka4TextBlock.Text = Mieskolainen.Palkka.ToString();
         }
 
     }
