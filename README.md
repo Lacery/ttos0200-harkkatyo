@@ -31,6 +31,9 @@ Harjoitustyösuunnitelma versio 0.1
 |22.3.|2h|Ville ja Oskari|  
 |26.3.|5h|Ville ja Oskari|  
 |1.4.|4h|Ville ja Oskari|  
+|12.4.|2h|Oskari|  
+|14.4|4h|Ville|  
+|20.4.|3h|Ville ja Oskari|  
 	
 	
 ## Colums and Rows numbered
